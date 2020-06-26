@@ -1,13 +1,13 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
-import endpoints.{
+import endpoints4s.{
   PartialInvariantFunctor,
   Semigroupal,
   Tupler,
   Validated,
   algebra
 }
-import endpoints.algebra.Documentation
+import endpoints4s.algebra.Documentation
 import scalaj.http.HttpRequest
 
 /**

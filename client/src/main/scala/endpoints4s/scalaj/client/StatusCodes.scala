@@ -1,6 +1,6 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
-import endpoints.algebra
+import endpoints4s.algebra
 
 /**
   * @group interpreters

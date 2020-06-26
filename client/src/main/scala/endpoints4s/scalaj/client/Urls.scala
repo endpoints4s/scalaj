@@ -1,10 +1,10 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
 import java.nio.charset.StandardCharsets.UTF_8
 
 import scala.collection.compat.Factory
-import endpoints.{PartialInvariantFunctor, Tupler, Validated, algebra}
-import endpoints.algebra.Documentation
+import endpoints4s.{PartialInvariantFunctor, Tupler, Validated, algebra}
+import endpoints4s.algebra.Documentation
 import scalaj.http.{Http, HttpRequest}
 
 /**

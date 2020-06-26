@@ -1,6 +1,6 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
-import endpoints.{Invalid, algebra}
+import endpoints4s.{Invalid, algebra}
 
 /**
   * @group interpreters
@@ -10,7 +10,7 @@ trait BuiltInErrors extends algebra.BuiltInErrors {
 
   def clientErrorsResponseEntity: ResponseEntity[Invalid] =
     resp =>
-      endpoints.ujson.codecs.invalidCodec
+      endpoints4s.ujson.codecs.invalidCodec
         .decode(resp)
         .fold(Right(_), errors => Left(new Exception(errors.mkString(". "))))
 

@@ -1,7 +1,7 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
 import scalaj.http.HttpResponse
-import endpoints.{
+import endpoints4s.{
   Invalid,
   InvariantFunctor,
   Semigroupal,
@@ -10,7 +10,7 @@ import endpoints.{
   Validated,
   algebra
 }
-import endpoints.algebra.Documentation
+import endpoints4s.algebra.Documentation
 
 /**
   * @group interpreters
