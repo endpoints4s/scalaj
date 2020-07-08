@@ -1,26 +1,23 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
 import java.util.Base64
 
-import endpoints.{Tupler, algebra}
-import endpoints.algebra.BasicAuthentication.Credentials
-import endpoints.algebra.Documentation
+import endpoints4s.{Tupler, algebra}
+import endpoints4s.algebra.BasicAuthentication.Credentials
+import endpoints4s.algebra.Documentation
 
 /**
   * @group interpreters
   */
-trait BasicAuthentication
-    extends algebra.BasicAuthentication
-    with EndpointsWithCustomErrors {
+trait BasicAuthentication extends algebra.BasicAuthentication with EndpointsWithCustomErrors {
 
-  private[endpoints] def authenticatedRequest[U, E, H, UE, HCred, Out](
+  private[endpoints4s] def authenticatedRequest[U, E, H, UE, HCred, Out](
       method: Method,
       url: Url[U],
       entity: RequestEntity[E],
       headers: RequestHeaders[H],
       requestDocs: Documentation
-  )(
-      implicit
+  )(implicit
       tuplerUE: Tupler.Aux[U, E, UE],
       tuplerHCred: Tupler.Aux[H, Credentials, HCred],
       tuplerUEHCred: Tupler.Aux[UE, HCred, Out]

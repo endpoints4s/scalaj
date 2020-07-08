@@ -1,6 +1,6 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
-import endpoints.algebra
+import endpoints4s.algebra
 
 /**
   * @group interpreters
@@ -22,7 +22,7 @@ trait StatusCodes extends algebra.StatusCodes {
 
   def BadRequest = 400
   def Unauthorized = 401
-  def PaymentRequired = 202
+  def PaymentRequired = 402
   def Forbidden = 403
   def NotFound = 404
   def MethodNotAllowed = 405

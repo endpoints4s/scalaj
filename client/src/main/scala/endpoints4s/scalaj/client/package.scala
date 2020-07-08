@@ -1,4 +1,4 @@
-package endpoints.scalaj
+package endpoints4s.scalaj
 
 /**
   * Client interpreters backed by scalaj-http

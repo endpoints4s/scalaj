@@ -1,16 +1,13 @@
-package endpoints.scalaj.client
+package endpoints4s.scalaj.client
 
-import endpoints.algebra
+import endpoints4s.algebra
 
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
   * @group interpreters
   */
-trait Endpoints
-    extends algebra.Endpoints
-    with EndpointsWithCustomErrors
-    with BuiltInErrors
+trait Endpoints extends algebra.Endpoints with EndpointsWithCustomErrors with BuiltInErrors
 
 /**
   * @group interpreters
@@ -71,9 +68,7 @@ trait EndpointsWithCustomErrors
       def maybeServerError =
         serverErrorResponse(resp)
           .map(
-            mapPartialResponseEntity(_)(serverError =>
-              Left(serverErrorToThrowable(serverError))
-            )
+            mapPartialResponseEntity(_)(serverError => Left(serverErrorToThrowable(serverError)))
           )
       maybeResponse
         .orElse(maybeClientErrors)
