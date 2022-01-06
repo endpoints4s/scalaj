@@ -29,7 +29,53 @@ val `scalaj-client` =
         ("org.scalaj" %% "scalaj-http" % "2.4.2").cross(CrossVersion.for3Use2_13),
         ("org.endpoints4s" %% "algebra-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13),
         ("org.endpoints4s" %% "algebra-circe-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13)
-      )
+      ),
+      // Scala 2.x vs 3.x
+      scalacOptions ++= {
+        CrossVersion.partialVersion(scalaVersion.value) match {
+          case Some((2, _)) =>
+            Seq(
+              "-feature",
+              "-deprecation",
+              "-encoding",
+              "UTF-8",
+              "-unchecked",
+              "-language:implicitConversions",
+              "-Ywarn-dead-code",
+              "-Ywarn-numeric-widen",
+              "-Ywarn-value-discard"
+            )
+          case _ =>
+            Seq(
+              "-feature",
+              "-deprecation",
+              "-encoding",
+              "UTF-8",
+              "-unchecked",
+              "-language:implicitConversions,Scala2Compat"
+            )
+        }
+      },
+      // Scala 2.12 vs 2.13
+      scalacOptions ++= {
+        CrossVersion.partialVersion(scalaVersion.value) match {
+          case Some((2, n)) if n >= 13 =>
+            Seq(
+              "-Xlint:adapted-args,nullary-unit,inaccessible,infer-any,missing-interpolator,doc-detached,private-shadow,type-parameter-shadow,poly-implicit-overload,option-implicit,delayedinit-select,package-object-classes,stars-align,constant,unused,nonlocal-return,implicit-not-found,serial,valpattern,eta-zero,eta-sam,deprecation"
+            ) ++ (if (insideCI.value) Seq("-Xfatal-warnings") else Nil)
+          case Some((2, _)) =>
+            Seq(
+              "-Xlint",
+              "-Yno-adapted-args",
+              "-Ywarn-unused-import",
+              "-Xexperimental",
+              "-Xfuture",
+              "-language:higherKinds"
+            )
+          case _ =>
+            Seq()
+        }
+      }
     )
 
 val documentation =
