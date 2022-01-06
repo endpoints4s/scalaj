@@ -17,9 +17,14 @@ jobs:
       - uses: olafurpg/setup-scala@v13
       - uses: coursier/cache-action@v6.3
       - run: docker run -d -p 8080:8080 julienrf/endpoints4s-stubserver:1.0.1
-      - name: Tests
-        run: sbt coverage +test coverageReport coverageAggregate
-      - run: bash <(curl -s https://codecov.io/bash)
+      - name: Scala 2.12 tests
+        run: sbt "++ 2.12.15 test"
+      - name: Scala 3 tests
+        run: sbt "++ 3.0.2 test"
+      - name: Scala 2.13 tests
+        run: |
+          sbt "++ 2.13.7 ;coverage; test; coverageReport; coverageAggregate"
+          bash <(curl -s https://codecov.io/bash)
       - name: Version Policy Check
         run: sbt versionPolicyCheck
       - name: Code formatting
