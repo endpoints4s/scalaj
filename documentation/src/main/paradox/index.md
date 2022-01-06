@@ -12,8 +12,8 @@ or asynchronously.
 
 Given the following endpoint definition:
 
-@@snip [EndpointsDocs.scala](/scalaj/client/src/test/scala/endpoints4s/scalaj/client/EndpointsDocs.scala) { #endpoint-definition }
+@@snip [EndpointsDocs.scala](/client/src/test/scala/endpoints4s/scalaj/client/EndpointsDocs.scala) { #endpoint-definition }
 
 It can be asynchronously invoked as follows:
 
-@@snip [EndpointsDocs.scala](/scalaj/client/src/test/scala/endpoints4s/scalaj/client/EndpointsDocs.scala) { #invocation }
+@@snip [EndpointsDocs.scala](/client/src/test/scala/endpoints4s/scalaj/client/EndpointsDocs.scala) { #invocation }
