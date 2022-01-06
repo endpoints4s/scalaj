@@ -30,6 +30,7 @@ val `scalaj-client` =
         ("org.endpoints4s" %% "algebra-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13),
         ("org.endpoints4s" %% "algebra-circe-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13)
       ),
+      skip / publish := scalaVersion.value.startsWith("3"), // Don’t publish Scala 3 artifacts for now because the algebra is not published for Scala 3
       // Scala 2.x vs 3.x
       scalacOptions ++= {
         CrossVersion.partialVersion(scalaVersion.value) match {
