@@ -25,10 +25,10 @@ val `scalaj-client` =
     .settings(
       name := "scalaj-client",
       libraryDependencies ++= Seq(
-        "org.endpoints4s" %% "openapi" % "4.0.0",
+        ("org.endpoints4s" %% "openapi" % "4.0.0").cross(CrossVersion.for3Use2_13),
         ("org.scalaj" %% "scalaj-http" % "2.4.2").cross(CrossVersion.for3Use2_13),
-        "org.endpoints4s" %% "algebra-testkit" % "1.0.0" % Test,
-        "org.endpoints4s" %% "algebra-circe-testkit" % "1.0.0" % Test
+        ("org.endpoints4s" %% "algebra-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13),
+        ("org.endpoints4s" %% "algebra-circe-testkit" % "1.0.0" % Test).cross(CrossVersion.for3Use2_13)
       )
     )
 
