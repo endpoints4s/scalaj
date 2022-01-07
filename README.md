@@ -8,7 +8,8 @@ See the [documentation](http://endpoints4s.github.io/scalaj) to learn more.
 
 ## Contributing
 
-This project is looking for maintainers and contributors. See the [contributing guide](CONTRIBUTING.md).
+See the [contributing guide](CONTRIBUTING.md). This project is looking for maintainers and contributors, please
+open an issue if you are interested in becoming a maintainer.
 
 ## License
 
